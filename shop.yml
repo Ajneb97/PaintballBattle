@@ -1,0 +1,261 @@
+shopInventoryTitle: "&9Paintball Shop"
+shopPerksInventoryTitle: "&9Paintball Shop &7- &9Perks"
+shopHatsInventoryTitle: "&9Paintball Shop &7- &9Hats"
+shop_items:
+    perks_items:
+        item: DIAMOND_BLOCK
+        name: "&6&lPerks"
+        lore:
+        - "&7Buy perks to improve your skill in combat."
+        slot: 11
+    hats_items:
+        item: CHAINMAIL_HELMET
+        name: "&6&lHats"
+        lore:
+        - "&7Unlock hats that gives you abilities in the game."
+        slot: 15
+perks_upgrades:
+    extra_lives:
+    - "1;1000;&6&lExtra Lives I"
+    - "2;2000;&6&lExtra Lives II"
+    - "3;4000;&6&lExtra Lives III"
+    - "4;6000;&6&lExtra Lives IV"
+    - "5;8000;&6&lExtra Lives V"
+    initial_killcoins:
+    - "1;500;&6&lInitial KillCoins I"
+    - "2;1000;&6&lInitial KillCoins II"
+    - "3;2000;&6&lInitial KillCoins III"
+    - "4;4000;&6&lInitial KillCoins IV"
+    - "5;8000;&6&lInitial KillCoins V"
+    extra_killcoins:
+    - "1;5000;&6&lExtra KillCoins I"
+    - "2;10000;&6&lExtra KillCoins II"
+    - "3;20000;&6&lExtra KillCoins III"
+perks_items:
+    decorative_item:
+        item: PURPLE_STAINED_GLASS_PANE
+        name: " "
+    go_to_menu:
+        item: ARROW
+        name: "&7Menu"
+        slot: 45
+    coins_info:
+        item: EMERALD
+        name: "&7Your Coins: &6%coins%"
+        slot: 49
+    extra_lives_perk_item:
+        item: IRON_BLOCK
+        name: "%name%"
+        lore:
+        - "&7Allows you to start the game with"
+        - "&a%amount% &7additional lives."
+        - ""
+        - "&eCost: &a%cost%"
+        - ""
+        - "&eClick to Buy"
+    initial_killcoins_perk_item:
+        item: IRON_BLOCK
+        name: "%name%"
+        lore:
+        - "&7Allows you to start the game with"
+        - "&a%amount% &7additional killcoins."
+        - ""
+        - "&eCost: &a%cost%"
+        - ""
+        - "&eClick to Buy"
+    extra_killcoins_perk_item:
+        item: IRON_BLOCK
+        name: "%name%"
+        lore:
+        - "&7Allows you to receive &a%amount% &7additional"
+        - "&7killcoins when doing a kill."
+        - ""
+        - "&eCost: &a%cost%"
+        - ""
+        - "&eClick to Buy"
+    extra_lives_bought_perk_item:
+        item: DIAMOND_BLOCK
+        name: "%name%"
+        lore:
+        - "&7Allows you to start the game with"
+        - "&a%amount% &7additional lives."
+        - ""
+        - "&cYou already bought this!"
+    initial_killcoins_bought_perk_item:
+        item: DIAMOND_BLOCK
+        name: "%name%"
+        lore:
+        - "&7Allows you to start the game with"
+        - "&a%amount% &7additional killcoins."
+        - ""
+        - "&cYou already bought this!"
+    extra_killcoins_bought_perk_item:
+        item: DIAMOND_BLOCK
+        name: "%name%"
+        lore:
+        - "&7Allows you to receive &a%amount% &7additional"
+        - "&7killcoins when doing a kill."
+        - ""
+        - "&cYou already bought this!"
+hats_items:
+    go_to_menu:
+        item: ARROW
+        name: "&7Menu"
+        slot: 45
+    coins_info:
+        item: EMERALD
+        name: "&7Your Coins: &6%coins%"
+        slot: 49
+    speed_hat:
+        item: SPONGE
+        name: "&6&lSpeed Hat"
+        lore:
+        - "&7Gives you permanent Speed I."
+        - ""
+        - "&eCost: &a2000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7Gives you permanent Speed I."
+        - ""
+        - "&cYou already bought this!"
+        slot: 0
+        cost: 2000
+    jump_hat:
+        item: SLIME_BLOCK
+        name: "&6&lJump Hat"
+        lore:
+        - "&7Gives you Jump I when sneaking for"
+        - "&710 seconds."
+        - ""
+        - "&eCost: &a2000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7Gives you Jump I when sneaking for"
+        - "&710 seconds."
+        - ""
+        - "&cYou already bought this!"
+        slot: 1
+        cost: 2000
+    protector_hat:
+        item: IRON_HELMET
+        name: "&6&lProtector Hat"
+        lore:
+        - "&7Gives you a small chance of dodging"
+        - "&7snowballs hits."
+        - ""
+        - "&eCost: &a4000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7Gives you a small chance of dodging"
+        - "&7snowballs hits."
+        - ""
+        - "&cYou already bought this!"
+        slot: 2
+        cost: 4000
+    time_hat:
+        item: GOLDEN_HELMET
+        name: "&6&lTime Hat"
+        lore:
+        - "&7All of your killstreaks last 5 more seconds."
+        - ""
+        - "&eCost: &a4000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7All of your killstreaks last 5 more seconds."
+        - ""
+        - "&cYou already bought this!"
+        slot: 3
+        cost: 4000
+    guardian_hat:
+        item: DIAMOND_HELMET
+        name: "&6&lGuardian Hat"
+        lore:
+        - "&7Gives you Invulnerability and Slowness II"
+        - "&7when sneaking for 7 seconds."
+        - ""
+        - "&eCost: &a8000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7Gives you Invulnerability and Slowness II"
+        - "&7when sneaking for 7 seconds."
+        - ""
+        - "&cYou already bought this!"
+        slot: 4
+        cost: 8000
+    present_hat:
+        item: PLAYER_HEAD
+        skull_id: "efcd607d-64bb-4511-bd81-7a36ce7335b6"
+        skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdiNTU0ZWI4MTUyMTJiZWM1ZTBmNzc2ZTFlNmU2NWZhZDQ3YjZhMzRkMmZjMTMyZjcwMDY0YjNiZmIxOTNlZSJ9fX0="
+        name: "&6&lPresent Hat"
+        lore:
+        - "&7At the start of the game one of your teammates"
+        - "&7will receive 3 killcoins."
+        - ""
+        - "&eCost: &a8000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7At the start of the game one of your teammates"
+        - "&7will receive 3 killcoins."
+        - ""
+        - "&cYou already bought this!"
+        slot: 5
+        cost: 8000
+    assassin_hat:
+        item: PLAYER_HEAD
+        skull_id: "ef87eba4-15bc-40e9-8117-569d67e9e09e"
+        skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzk1NzEyYjZlMWIzOGY5MmUyMWE1MmZiNzlhZjUzM2I3M2JiNWRkNWNiZGFmOTJlZTY0YjkzYWFhN2M0NjRkIn19fQ=="
+        name: "&6&lAssassin Hat"
+        lore:
+        - "&7Killing the user who last killed you"
+        - "&7will give you an extra killcoin."
+        - ""
+        - "&eCost: &a15000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7Killing the user who last killed you"
+        - "&7will give you an extra killcoin."
+        - ""
+        - "&cYou already bought this!"
+        slot: 6
+        cost: 15000
+    chicken_hat:
+        item: PLAYER_HEAD
+        skull_id: "7d3a8ace-e045-4eba-ab71-71dbf525daf1"
+        skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYzODQ2OWE1OTljZWVmNzIwNzUzNzYwMzI0OGE5YWIxMWZmNTkxZmQzNzhiZWE0NzM1YjM0NmE3ZmFlODkzIn19fQ=="
+        name: "&6&lChicken Hat"
+        lore:
+        - "&7You will shoot eggs instead of snowballs."
+        - ""
+        - "&eCost: &a15000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7You will shoot eggs instead of snowballs."
+        - ""
+        - "&cYou already bought this!"
+        slot: 7
+        cost: 15000
+    explosive_hat:
+        item: TNT
+        name: "&6&lExplosive Hat"
+        lore:
+        - "&7Gives you a small chance of exploding when you"
+        - "&7are killed, killing nearby enemies."
+        - ""
+        - "&eCost: &a20000"
+        - ""
+        - "&eClick to Buy"
+        bought_lore:
+        - "&7Gives you a small chance of exploding when you"
+        - "&7are killed, killing nearby enemies."
+        - ""
+        - "&cYou already bought this!"
+        slot: 8
+        cost: 20000

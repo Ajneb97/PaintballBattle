@@ -1,0 +1,309 @@
+#If you need help with the config, remember to visit the main page on Spigot
+#https://www.spigotmc.org/resources/paintball-battle-team-minigame-1-8-1-15.76676/
+
+new_version_reminder: true
+arena_starting_cooldown: 20
+arena_time_default: 360
+arena_ending_phase_cooldown: 10
+choose_team_system: true
+team_starting_lives_default: 100
+respawn_invulnerability: 4
+snowballs_per_kill: 8
+initial_snowballs: 64
+coins_per_kill: "1-2"
+top_hologram_number_of_players: 10
+top_hologram_update_time: 300
+economy_used: "paintball"
+empty_inventory_to_join: false
+rewards_executed_after_teleport: false
+broadcast_starting_arena:
+    enabled: true
+    worlds:
+    - "paintball"
+    - "lobby"
+teams:
+    blue:
+        name: "&1&lBlue"
+        color: 18175
+        item: "BLUE_WOOL"
+    red:
+        name: "&4&lRed"
+        color: 16711680
+        item: "RED_WOOL"
+    yellow:
+        name: "&e&lYellow"
+        color: 15335168
+        item: "YELLOW_WOOL"
+    green:
+        name: "&2&lGreen"
+        color: 1017094
+        item: "GREEN_WOOL"
+    orange:
+        name: "&6&lOrange"
+        color: 15963657
+        item: "ORANGE_WOOL"
+    purple:
+        name: "&5&lPurple"
+        color: 15338477
+        item: "PURPLE_WOOL"
+    black:
+        name: "&0&lBlack"
+        color: 0
+        item: "BLACK_WOOL"
+    white:
+        name: "&f&lWhite"
+        color: 16777215
+        item: "WHITE_WOOL"
+commands_whitelist:
+- "/paintball leave"
+- "/help"
+arena_chat_enabled: true
+arena_chat_format: "&f<&8[&7%team%&8] &a%player%&f> %message%"
+leave_item_enabled: true
+leave_item:
+   item: IRON_DOOR
+   name: "&7[&c&lLeave&7]"
+   lore:
+   - "&7Right Click to leave the game." 
+killstreaks_item_enabled: true
+killstreaks_item:
+   item: GOLD_NUGGET
+   name: "&eKillcoins: &a%amount%"
+   lore:
+   - "&7Right Click to buy Killstreaks." 
+hats_item_enabled: true
+hats_item:
+   item: DIAMOND_HELMET
+   name: "&7[&b&lSelect your Hat&7]"
+   lore:
+   - "&7Right Click to select a Hat." 
+play_again_item_enabled: true
+play_again_item:
+   item: LIGHT_BLUE_DYE
+   name: "&7[&9&lPlay Again&7]"
+   lore:
+   - "&7Right Click to play in another map." 
+winners_command_rewards:
+- "msg %player% &aYou've won! Here, take this reward."
+- "paintball givecoins %player% %random_10*kills-20*kills%"
+losers_command_rewards:
+- "msg %player% &aYou've lost! Here, take this compensation reward."
+- "paintball givecoins %player% %random_2*kills-6*kills%"
+tie_command_rewards:
+- "msg %player% &aIt's a tie! Here, take this reward."
+- "paintball givecoins %player% %random_2*kills-6*kills%"
+killedBySound: "BLOCK_NOTE_BLOCK_PLING;10;0.1"
+killSound: "ENTITY_FIREWORK_ROCKET_BLAST;10;2"
+expireKillstreakSound: "BLOCK_NOTE_BLOCK_BASEDRUM;10;2"
+snowballShootSound: "ENTITY_ARROW_SHOOT;10;0.5"
+shopUnlockSound: "ENTITY_FIREWORK_ROCKET_BLAST;10;2"
+hatAbilityActivatedSound: "BLOCK_CHEST_OPEN;10;1.5"
+explosiveHatSound: "ENTITY_GENERIC_EXPLODE;10;1"
+startCooldownSound: "BLOCK_NOTE_BLOCK_PLING;10;1"
+startGameSound: "BLOCK_NOTE_BLOCK_PLING;10;2"
+snowball_particle: "SNOW_SHOVEL"
+mysql-database:
+    enabled: false
+    host: localhost
+    port: 3306
+    username: root
+    password: root
+    database: paintball
+killstreaks_inventory_title: "&9&lPaintball Killstreaks"
+killstreaks_items:
+    more_snowballs:
+        item: SNOWBALL
+        name: "&6&lMore Snowballs"
+        lore:
+        - "&7You will receive 32 extra snowballs."
+        - ""
+        - "&7Cost: &a2 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 0
+        snowballs: 32
+        cost: 2
+        activateSound: "ENTITY_VILLAGER_YES;10;1"
+    strong_arm:
+        item: BEACON
+        name: "&6&lStrong Arm"
+        lore:
+        - "&7You will throw snowballs at high speed."
+        - ""
+        - "&7Duration: &a30s"
+        - "&7Cost: &a3 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 1
+        duration: 30
+        cost: 3
+        activateSound: "BLOCK_ANVIL_USE;10;2"
+    triple_shoot:
+        item: DIAMOND
+        name: "&6&lTriple Shoot"
+        lore:
+        - "&7You will throw 3 snowballs at a time."
+        - ""
+        - "&7Duration: &a30s"
+        - "&7Cost: &a3 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 2
+        duration: 30
+        cost: 3
+        activateSound: "BLOCK_ANVIL_USE;10;2"
+    3_lives:
+        item: WHEAT
+        name: "&6&l+3 Lives"
+        lore:
+        - "&7Regain 3 Lives for your team."
+        - ""
+        - "&7Cost: &a4 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 3
+        cost: 4
+        activateSound: "ENTITY_BAT_TAKEOFF;10;1.5;global"
+    teleport:
+        item: ENDER_PEARL
+        name: "&6&lTeleport"
+        lore:
+        - "&7Teleports you to your death location."
+        - ""
+        - "&7Cost: &a8 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 4
+        cost: 8
+        activateSound: "ENTITY_ENDERMAN_TELEPORT;10;1"
+    lightning:
+        item: GOLDEN_AXE
+        name: "&6&lLightning Strike"
+        lore:
+        - "&7Kills your sorrounding enemies in a radius"
+        - "&7of 10 blocks."
+        - ""
+        - "&7Cost: &a12 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 5
+        radius: 10
+        cost: 12
+        activateSound: "ENTITY_LIGHTNING_BOLT_THUNDER;10;1"
+    nuke:
+        item: TNT
+        name: "&6&lNuke"
+        lore:
+        - "&7Kills all of your enemies."
+        - ""
+        - "&7Cost: &a25 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 6
+        cost: 25
+        activateSound: "ENTITY_WOLF_HOWL;10;2;global"
+        finalSound: "ENTITY_GENERIC_EXPLODE;10;1;global"
+    fury:
+        item: REDSTONE
+        name: "&6&lFury Mode"
+        lore:
+        - "&7You will be immune to snowballs, and you"
+        - "&7won't consume them."
+        - ""
+        - "&7Duration: &a25s"
+        - "&7Cost: &a30 Killcoins"
+        - ""
+        - "&aClick to activate!"
+        slot: 7
+        duration: 25
+        cost: 30
+        activateSound: "BLOCK_PISTON_EXTEND;10;1.5;global"
+hats_inventory_title: "&9&lPaintball Hats"
+hats_items:
+    no_hats:
+        item: BARRIER
+        name: "&cYou don't have any hats!"
+        lore:
+        - "&7Buy them on the Paintball Shop."
+    remove_hat:
+        item: REDSTONE_BLOCK
+        name: "&cRemove your Hat"
+    speed_hat:
+        item: SPONGE
+        name: "&6&lSpeed Hat"
+        lore:
+        - "&7Gives you permanent Speed I."
+        - ""
+        - "&7Status: %status%"
+    jump_hat:
+        item: SLIME_BLOCK
+        name: "&6&lJump Hat"
+        lore:
+        - "&7Gives you Jump I when sneaking for"
+        - "&710 seconds."
+        - ""
+        - "&7Status: %status%"
+        duration: 10
+        cooldown: 30
+    protector_hat:
+        item: IRON_HELMET
+        name: "&6&lProtector Hat"
+        lore:
+        - "&7Gives you a small chance of dodging"
+        - "&7snowballs hits."
+        - ""
+        - "&7Status: %status%"
+    time_hat:
+        item: GOLDEN_HELMET
+        name: "&6&lTime Hat"
+        lore:
+        - "&7All of your killstreaks last 5 more seconds."
+        - ""
+        - "&7Status: %status%"
+    guardian_hat:
+        item: DIAMOND_HELMET
+        name: "&6&lGuardian Hat"
+        lore:
+        - "&7Gives you Invulnerability and Slowness II"
+        - "&7when sneaking for 7 seconds."
+        - ""
+        - "&7Status: %status%"
+        duration: 7
+        cooldown: 45
+    present_hat:
+        item: PLAYER_HEAD
+        skull_id: "efcd607d-64bb-4511-bd81-7a36ce7335b6"
+        skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdiNTU0ZWI4MTUyMTJiZWM1ZTBmNzc2ZTFlNmU2NWZhZDQ3YjZhMzRkMmZjMTMyZjcwMDY0YjNiZmIxOTNlZSJ9fX0="
+        name: "&6&lPresent Hat"
+        lore:
+        - "&7At the start of the game one of your teammates"
+        - "&7will receive 3 killcoins."
+        - ""
+        - "&7Status: %status%"
+    assassin_hat:
+        item: PLAYER_HEAD
+        skull_id: "ef87eba4-15bc-40e9-8117-569d67e9e09e"
+        skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzk1NzEyYjZlMWIzOGY5MmUyMWE1MmZiNzlhZjUzM2I3M2JiNWRkNWNiZGFmOTJlZTY0YjkzYWFhN2M0NjRkIn19fQ=="
+        name: "&6&lAssassin Hat"
+        lore:
+        - "&7Killing the user who last killed you"
+        - "&7will give you an extra killcoin."
+        - ""
+        - "&7Status: %status%"
+    chicken_hat:
+        item: PLAYER_HEAD
+        skull_id: "7d3a8ace-e045-4eba-ab71-71dbf525daf1"
+        skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYzODQ2OWE1OTljZWVmNzIwNzUzNzYwMzI0OGE5YWIxMWZmNTkxZmQzNzhiZWE0NzM1YjM0NmE3ZmFlODkzIn19fQ=="
+        name: "&6&lChicken Hat"
+        lore:
+        - "&7You will shoot eggs instead of snowballs."
+        - ""
+        - "&7Status: %status%"
+    explosive_hat:
+        item: TNT
+        name: "&6&lExplosive Hat"
+        lore:
+        - "&7Gives you a small chance of exploding when you"
+        - "&7are killed, killing nearby enemies."
+        - ""
+        - "&7Status: %status%"

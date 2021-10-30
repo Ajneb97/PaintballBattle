@@ -1,0 +1,11 @@
+main: pb.ajneb97.PaintballBattle
+version: 1.6.1
+name: PaintballBattle
+api-version: 1.13
+author: Ajneb97
+softdepend: [Multiverse-Core, HolographicDisplays, Vault, PlaceholderAPI]
+
+commands:
+  paintball:
+    description: Main command of PaintballBattle
+    aliases: pb
