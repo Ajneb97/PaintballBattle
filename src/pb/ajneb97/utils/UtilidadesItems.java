@@ -20,6 +20,7 @@ import pb.ajneb97.versiones.V1_14;
 import pb.ajneb97.versiones.V1_15;
 import pb.ajneb97.versiones.V1_16;
 import pb.ajneb97.versiones.V1_17;
+import pb.ajneb97.versiones.V1_18;
 import pb.ajneb97.versiones.V1_8_R1;
 import pb.ajneb97.versiones.V1_8_R2;
 import pb.ajneb97.versiones.V1_8_R3;
@@ -57,7 +58,8 @@ public class UtilidadesItems {
 				
 		  	}
 		  	meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE,ItemFlag.HIDE_POTION_EFFECTS);
-		  	if(Bukkit.getVersion().contains("1.15") || Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")) {
+		  	if(Bukkit.getVersion().contains("1.15") || Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")
+		  			 || Bukkit.getVersion().contains("1.18")) {
 		  		meta.setUnbreakable(true);
 		  	}else {
 		  		meta.spigot().setUnbreakable(true); //SOLO FUNCIONA CON SPIGOT
@@ -87,6 +89,11 @@ public class UtilidadesItems {
 	
 	public static ItemStack getCabeza(ItemStack item, String id,String textura){
 		String packageName = Bukkit.getServer().getClass().getPackage().getName();
+		if(packageName.contains("1_18_")){
+			V1_18 u = new V1_18();
+			ItemStack stack = u.getCabeza(item,id,textura);			
+			return stack;
+		}
 		if(packageName.contains("1_17_")){
 			V1_17 u = new V1_17();
 			ItemStack stack = u.getCabeza(item,id,textura);			

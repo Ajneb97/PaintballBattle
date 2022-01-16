@@ -19,6 +19,7 @@ import pb.ajneb97.versiones.V1_14;
 import pb.ajneb97.versiones.V1_15;
 import pb.ajneb97.versiones.V1_16;
 import pb.ajneb97.versiones.V1_17;
+import pb.ajneb97.versiones.V1_18;
 import pb.ajneb97.versiones.V1_8_R1;
 import pb.ajneb97.versiones.V1_8_R2;
 import pb.ajneb97.versiones.V1_8_R3;
@@ -67,6 +68,10 @@ public class UtilidadesOtros {
 	
 	public static void generarParticula(String particle, Location loc, float xOffset, float yOffset, float zOffset, float speed, int count) {
 		String packageName = Bukkit.getServer().getClass().getPackage().getName();
+		if(packageName.contains("1_18_")){
+			V1_18 u = new V1_18();
+			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
+		}
 		if(packageName.contains("1_17_")){
 			V1_17 u = new V1_17();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
