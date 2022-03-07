@@ -24,6 +24,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -326,15 +327,17 @@ public class PartidaListener implements Listener{
 	}
 	
 	@EventHandler
-	public void caerVacio(PlayerMoveEvent event) {
-		Player jugador = event.getPlayer();
-		Partida partida = plugin.getPartidaJugador(jugador.getName());
-		if(partida != null && partida.estaIniciada()) {
-			Location from = event.getFrom();
-			if(from.getBlockY() <= -10) {
-				Equipo equipo = partida.getEquipoJugador(jugador.getName());
-				if(equipo != null) {
-					event.setTo(equipo.getSpawn());
+	public void caerVacio(EntityDamageEvent event) {
+		Entity entidad = event.getEntity();
+		if(entidad instanceof Player) {
+			Player jugador = (Player) entidad;
+			Partida partida = plugin.getPartidaJugador(jugador.getName());
+			if(partida != null  && partida.estaIniciada()) {
+				if(event.getCause().equals(DamageCause.VOID)) {
+					Equipo equipo = partida.getEquipoJugador(jugador.getName());
+					if(equipo != null) {
+						jugador.teleport(equipo.getSpawn());
+					}
 				}
 			}
 		}
