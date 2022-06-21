@@ -82,7 +82,8 @@ public class Checks {
 	//Al iniciar el server, revisa TODOS LOS PATHS ORIGINALES (IDs numericas) y los modifica si no es 1.13+
 	public static void checkearYModificar(PaintballBattle plugin, boolean primeraVez) {
 				if(!Bukkit.getVersion().contains("1.13") && !Bukkit.getVersion().contains("1.14") && !Bukkit.getVersion().contains("1.15")
-						&& !Bukkit.getVersion().contains("1.16") && !Bukkit.getVersion().contains("1.17") && !Bukkit.getVersion().contains("1.18")) {
+						&& !Bukkit.getVersion().contains("1.16") && !Bukkit.getVersion().contains("1.17") && !Bukkit.getVersion().contains("1.18")
+						&& !Bukkit.getVersion().contains("1.19")) {
 					FileConfiguration config = plugin.getConfig();
 					FileConfiguration shop = plugin.getShop();
 					if(primeraVez) {

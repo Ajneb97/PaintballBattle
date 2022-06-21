@@ -20,6 +20,7 @@ import pb.ajneb97.versiones.V1_15;
 import pb.ajneb97.versiones.V1_16;
 import pb.ajneb97.versiones.V1_17;
 import pb.ajneb97.versiones.V1_18;
+import pb.ajneb97.versiones.V1_19;
 import pb.ajneb97.versiones.V1_8_R1;
 import pb.ajneb97.versiones.V1_8_R2;
 import pb.ajneb97.versiones.V1_8_R3;
@@ -68,34 +69,38 @@ public class UtilidadesOtros {
 	
 	public static void generarParticula(String particle, Location loc, float xOffset, float yOffset, float zOffset, float speed, int count) {
 		String packageName = Bukkit.getServer().getClass().getPackage().getName();
+		if(packageName.contains("1_19_")){
+			V1_19 u = new V1_19();
+			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
+		}else
 		if(packageName.contains("1_18_")){
 			V1_18 u = new V1_18();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_17_")){
 			V1_17 u = new V1_17();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_16_")){
 			V1_16 u = new V1_16();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_15_R1")){
 			V1_15 u = new V1_15();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_14_R1")){
 			V1_14 u = new V1_14();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_13_R2")){
 			V1_13_R2 u = new V1_13_R2();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_13_R1")){
 			V1_13 u = new V1_13();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
+		}else
 		if(packageName.contains("1_12_R1")){
 			V1_12 u = new V1_12();
 			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
