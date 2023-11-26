@@ -289,7 +289,7 @@ public class PartidaManager {
 			ItemStack item = null;
 			if(Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14") || Bukkit.getVersion().contains("1.15")
 					|| Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17") || Bukkit.getVersion().contains("1.18")
-					|| Bukkit.getVersion().contains("1.19")) {
+					|| Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
 				if(j.getSelectedHat().equals("chicken_hat")) {
 					item = new ItemStack(Material.EGG,1);
 				}else {
@@ -492,7 +492,7 @@ public class PartidaManager {
 		ItemStack item = null;
 		if(Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14") || Bukkit.getVersion().contains("1.15")
 				|| Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17") || Bukkit.getVersion().contains("1.18")
-				|| Bukkit.getVersion().contains("1.19")) {
+				|| Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
 			if(j.getSelectedHat().equals("chicken_hat")) {
 				item = new ItemStack(Material.EGG,1);
 			}else {
@@ -810,7 +810,7 @@ public class PartidaManager {
 		jugadorDañado.getJugador().teleport(equipo.getSpawn());
 		if(Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14") || Bukkit.getVersion().contains("1.15")
 				|| Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17") || Bukkit.getVersion().contains("1.18")
-				|| Bukkit.getVersion().contains("1.19")) {
+				|| Bukkit.getVersion().contains("1.19")|| Bukkit.getVersion().contains("1.20")) {
 			if(jugadorDañado.getSelectedHat().equals("chicken_hat")) {
 				jugadorDañado.getJugador().getInventory().removeItem(new ItemStack(Material.EGG));
 			}else {
@@ -867,7 +867,7 @@ public class PartidaManager {
 		int snowballs = Integer.valueOf(config.getString("snowballs_per_kill"));
 		if(Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14") || Bukkit.getVersion().contains("1.15")
 				|| Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17") || Bukkit.getVersion().contains("1.18")
-				|| Bukkit.getVersion().contains("1.19")) {
+				|| Bukkit.getVersion().contains("1.19")|| Bukkit.getVersion().contains("1.20")) {
 			if(jugadorAtacante.getSelectedHat().equals("chicken_hat")) {
 				jugadorAtacante.getJugador().getInventory().addItem(new ItemStack(Material.EGG,snowballs));
 			}else {
