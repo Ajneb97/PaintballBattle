@@ -63,8 +63,6 @@ public class UtilidadesItems {
 		  	if(Bukkit.getVersion().contains("1.15") || Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")
 		  			 || Bukkit.getVersion().contains("1.18") || Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
 		  		meta.setUnbreakable(true);
-		  	}else {
-		  		meta.spigot().setUnbreakable(true); //SOLO FUNCIONA CON SPIGOT
 		  	}
 		  	stack.setItemMeta(meta);
 			

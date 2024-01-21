@@ -2,12 +2,18 @@ package pb.ajneb97.versiones;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Base64;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
@@ -69,16 +75,23 @@ public class V1_20 {
 		if (textura.isEmpty()) return item;
 
         SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-        profile.getProperties().put("textures", new Property("textures", textura));
-
-        try {
-            Method mtd = skullMeta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
-            mtd.setAccessible(true);
-            mtd.invoke(skullMeta, profile);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
-            ex.printStackTrace();
-        }
+        UUID uuid = UUID.randomUUID();
+		PlayerProfile profile = Bukkit.createPlayerProfile(uuid);
+		PlayerTextures textures = profile.getTextures();
+		URL url;
+		try {
+			String decoded = new String(Base64.getDecoder().decode(textura));
+			String decodedFormatted = decoded.replaceAll("\\s", "");
+			int firstIndex = decodedFormatted.indexOf("\"SKIN\":{\"url\":")+15;
+			int lastIndex = decodedFormatted.indexOf("}",firstIndex+1);
+			url = new URL(decodedFormatted.substring(firstIndex,lastIndex-1));
+		} catch (MalformedURLException error) {
+			error.printStackTrace();
+			return null;
+		}
+		textures.setSkin(url);
+		profile.setTextures(textures);
+		skullMeta.setOwnerProfile(profile);
 
         item.setItemMeta(skullMeta);
         return item;
