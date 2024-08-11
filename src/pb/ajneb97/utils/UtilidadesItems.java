@@ -1,6 +1,11 @@
 package pb.ajneb97.utils;
 
+import pb.ajneb97.PaintballBattle;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.util.Base64;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,25 +14,16 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerProfile;
+import org.bukkit.profile.PlayerTextures;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
 
 import pb.ajneb97.juego.JugadorPaintball;
-import pb.ajneb97.versiones.V1_10;
-import pb.ajneb97.versiones.V1_11;
-import pb.ajneb97.versiones.V1_12;
-import pb.ajneb97.versiones.V1_13;
-import pb.ajneb97.versiones.V1_13_R2;
-import pb.ajneb97.versiones.V1_14;
-import pb.ajneb97.versiones.V1_15;
-import pb.ajneb97.versiones.V1_16;
-import pb.ajneb97.versiones.V1_17;
-import pb.ajneb97.versiones.V1_18;
-import pb.ajneb97.versiones.V1_19;
-import pb.ajneb97.versiones.V1_20;
-import pb.ajneb97.versiones.V1_8_R1;
-import pb.ajneb97.versiones.V1_8_R2;
-import pb.ajneb97.versiones.V1_8_R3;
-import pb.ajneb97.versiones.V1_9_R1;
-import pb.ajneb97.versiones.V1_9_R2;
 
 public class UtilidadesItems {
 
@@ -60,8 +56,7 @@ public class UtilidadesItems {
 				
 		  	}
 		  	meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE,ItemFlag.HIDE_POTION_EFFECTS);
-		  	if(Bukkit.getVersion().contains("1.15") || Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")
-		  			 || Bukkit.getVersion().contains("1.18") || Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
+		  	if(Bukkit.getVersion().contains("1.15") || UtilidadesOtros.isNew()) {
 		  		meta.setUnbreakable(true);
 		  	}
 		  	stack.setItemMeta(meta);
@@ -88,94 +83,49 @@ public class UtilidadesItems {
 	}
 	
 	public static ItemStack getCabeza(ItemStack item, String id,String textura){
-		String packageName = Bukkit.getServer().getClass().getPackage().getName();
-		if(packageName.contains("1_20_")){
-			V1_20 u = new V1_20();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		if(packageName.contains("1_19_")){
-			V1_19 u = new V1_19();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		if(packageName.contains("1_18_")){
-			V1_18 u = new V1_18();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		if(packageName.contains("1_17_")){
-			V1_17 u = new V1_17();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		if(packageName.contains("1_16_")){
-			V1_16 u = new V1_16();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		if(packageName.contains("1_15_R1")){
-			V1_15 u = new V1_15();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		else if(packageName.contains("1_14_R1")){
-			V1_14 u = new V1_14();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		else if(packageName.contains("1_13_R2")){
-			V1_13_R2 u = new V1_13_R2();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		else if(packageName.contains("1_13_R1")){
-			V1_13 u = new V1_13();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		else if(packageName.contains("1_12_R1")){
-			V1_12 u = new V1_12();
-			ItemStack stack = u.getCabeza(item,id,textura);			
-			return stack;
-		}
-		else if(packageName.contains("1_11_R1")){
-			V1_11 u = new V1_11();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else if(packageName.contains("1_10_R1")){
-			V1_10 u = new V1_10();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else if(packageName.contains("1_9_R2")){
-			V1_9_R2 u = new V1_9_R2();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else if(packageName.contains("1_9_R1")){
-			V1_9_R1 u = new V1_9_R1();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else if(packageName.contains("1_8_R3")){
-			V1_8_R3 u = new V1_8_R3();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else if(packageName.contains("1_8_R2")){
-			V1_8_R2 u = new V1_8_R2();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else if(packageName.contains("1_8_R1")){
-			V1_8_R1 u = new V1_8_R1();
-			ItemStack stack = u.getCabeza(item,id,textura);				
-			return stack;
-		}
-		else{
-			return item;
-		}		
+		SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
+
+		ServerVersion serverVersion = PaintballBattle.serverVersion;
+        if(serverVersion.serverVersionGreaterEqualThan(serverVersion,ServerVersion.v1_20_R2)){
+            UUID uuid = id != null ? UUID.fromString(id) : UUID.randomUUID();
+            PlayerProfile profile = Bukkit.createPlayerProfile(uuid);
+            PlayerTextures textures = profile.getTextures();
+            URL url;
+            try {
+                String decoded = new String(Base64.getDecoder().decode(textura));
+                String decodedFormatted = decoded.replaceAll("\\s", "");
+                JsonObject jsonObject = new Gson().fromJson(decodedFormatted, JsonObject.class);
+                String urlText = jsonObject.get("textures").getAsJsonObject().get("SKIN")
+                        .getAsJsonObject().get("url").getAsString();
+
+                url = new URL(urlText);
+            } catch (Exception error) {
+                error.printStackTrace();
+                return null;
+            }
+            textures.setSkin(url);
+            profile.setTextures(textures);
+            skullMeta.setOwnerProfile(profile);
+        }else{
+            GameProfile profile = null;
+            if(id == null) {
+                profile = new GameProfile(UUID.randomUUID(), "");
+            }else {
+                profile = new GameProfile(UUID.fromString(id), "");
+            }
+            profile.getProperties().put("textures", new Property("textures", textura));
+
+            try {
+                Field profileField = skullMeta.getClass().getDeclaredField("profile");
+                profileField.setAccessible(true);
+                profileField.set(skullMeta, profile);
+            } catch (IllegalArgumentException | NoSuchFieldException | SecurityException | IllegalAccessException error) {
+                error.printStackTrace();
+            }
+        }
+
+        item.setItemMeta(skullMeta);
+        
+		return item;	
 	}
 }

@@ -53,6 +53,7 @@ import pb.ajneb97.managers.PartidaManager;
 import pb.ajneb97.managers.ScoreboardAdmin;
 import pb.ajneb97.managers.TopHologram;
 import pb.ajneb97.managers.TopHologramAdmin;
+import pb.ajneb97.utils.ServerVersion;
 
 
 public class PaintballBattle extends JavaPlugin {
@@ -86,9 +87,12 @@ public class PaintballBattle extends JavaPlugin {
 	
 	private ConexionDatabase conexionDatabase;
 	
+	public static ServerVersion serverVersion;
+	
 	
 	@SuppressWarnings("unused")
 	public void onEnable(){
+	   setVersion();
 	   configPlayers = new ArrayList<PlayerConfig>();
 	   jugadoresDatos = new ArrayList<JugadorDatos>();
 	   topHologramas = new ArrayList<TopHologram>();
@@ -146,6 +150,22 @@ public class PaintballBattle extends JavaPlugin {
 		guardarTopHologramas();
 		
 		Bukkit.getConsoleSender().sendMessage(prefix+ChatColor.YELLOW + "Has been disabled! " + ChatColor.WHITE + "Version: " + version);
+	}
+	
+	public void setVersion(){
+		String packageName = Bukkit.getServer().getClass().getPackage().getName();
+		String bukkitVersion = Bukkit.getServer().getBukkitVersion().split("-")[0];
+		switch(bukkitVersion){
+			case "1.20.5":
+			case "1.20.6":
+				serverVersion = ServerVersion.v1_20_R4;
+				break;
+			case "1.21":
+				serverVersion = ServerVersion.v1_21_R1;
+				break;
+			default:
+				serverVersion = ServerVersion.valueOf(packageName.replace("org.bukkit.craftbukkit.", ""));
+		}
 	}
 	
 	public void recargarScoreboard() {

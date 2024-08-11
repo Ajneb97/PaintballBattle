@@ -1,35 +1,50 @@
 package pb.ajneb97.utils;
 
+import pb.ajneb97.PaintballBattle;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import pb.ajneb97.versiones.V1_10;
-import pb.ajneb97.versiones.V1_11;
-import pb.ajneb97.versiones.V1_12;
-import pb.ajneb97.versiones.V1_13;
-import pb.ajneb97.versiones.V1_13_R2;
-import pb.ajneb97.versiones.V1_14;
-import pb.ajneb97.versiones.V1_15;
-import pb.ajneb97.versiones.V1_16;
-import pb.ajneb97.versiones.V1_17;
-import pb.ajneb97.versiones.V1_18;
-import pb.ajneb97.versiones.V1_19;
-import pb.ajneb97.versiones.V1_20;
-import pb.ajneb97.versiones.V1_8_R1;
-import pb.ajneb97.versiones.V1_8_R2;
-import pb.ajneb97.versiones.V1_8_R3;
-import pb.ajneb97.versiones.V1_9_R1;
-import pb.ajneb97.versiones.V1_9_R2;
-
 public class UtilidadesOtros {
 
+	public static boolean isChatNew() {
+        ServerVersion serverVersion = PaintballBattle.serverVersion;
+        if(serverVersion.serverVersionGreaterEqualThan(serverVersion,ServerVersion.v1_19_R1)){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isNew() {
+        ServerVersion serverVersion = PaintballBattle.serverVersion;
+        if(serverVersion.serverVersionGreaterEqualThan(serverVersion,ServerVersion.v1_16_R1)){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isLegacy() {
+        ServerVersion serverVersion = PaintballBattle.serverVersion;
+        if(serverVersion.serverVersionGreaterEqualThan(serverVersion,ServerVersion.v1_13_R1)){
+            return false;
+        }else {
+            return true;
+        }
+    }
+    
 	public static String getTiempo(int tiempo) {
 		int minutos = tiempo/60;
 		int segundos = tiempo - (minutos*60);
@@ -68,77 +83,71 @@ public class UtilidadesOtros {
 		return numero;
 	}
 	
-	public static void generarParticula(String particle, Location loc, float xOffset, float yOffset, float zOffset, float speed, int count) {
-		String packageName = Bukkit.getServer().getClass().getPackage().getName();
-		if(packageName.contains("1_20_")){
-			V1_20 u = new V1_20();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_19_")){
-			V1_19 u = new V1_19();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_18_")){
-			V1_18 u = new V1_18();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_17_")){
-			V1_17 u = new V1_17();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_16_")){
-			V1_16 u = new V1_16();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_15_R1")){
-			V1_15 u = new V1_15();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_14_R1")){
-			V1_14 u = new V1_14();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_13_R2")){
-			V1_13_R2 u = new V1_13_R2();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_13_R1")){
-			V1_13 u = new V1_13();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}else
-		if(packageName.contains("1_12_R1")){
-			V1_12 u = new V1_12();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_11_R1")){
-			V1_11 u = new V1_11();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_10_R1")){
-			V1_10 u = new V1_10();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_9_R2")){
-			V1_9_R2 u = new V1_9_R2();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_9_R1")){
-			V1_9_R1 u = new V1_9_R1();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_8_R3")){
-			V1_8_R3 u = new V1_8_R3();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_8_R2")){
-			V1_8_R2 u = new V1_8_R2();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
-		}
-		else if(packageName.contains("1_8_R1")){
-			V1_8_R1 u = new V1_8_R1();
-			u.generarParticula(particle, loc, xOffset, yOffset, zOffset, speed, count);		
+	public static void generarParticula(String particle, Location l, float xOffset, float yOffset, float zOffset, float speed, int count) {
+		if(UtilidadesOtros.isLegacy()) {
+			float red = 0;
+			float green = 0;
+			float blue = 0;
+			boolean redstone = false;
+			if(particle.startsWith("REDSTONE;")) {
+				redstone = true;
+				String[] sep = particle.split(";");
+				int rgb = Integer.valueOf(sep[1]);
+				particle = sep[0];
+				Color color = Color.fromRGB(rgb);
+				red = (float) color.getRed()/255;
+				green = (float) color.getGreen()/255;
+				blue = (float) color.getBlue()/255;
+			}
+			try {
+				//Revisar el particle de REDSTONE
+				Class<?> packetEnumParticle = getNMSClass("EnumParticle");
+				Method packetEnumMethod = packetEnumParticle.getMethod("valueOf", String.class);
+				Object enumParticle = packetEnumMethod.invoke(null,particle);
+				Class<?> packetClass = getNMSClass("PacketPlayOutWorldParticles");
+				
+				Constructor<?> packetConstructor = null;
+				for(Constructor<?> c : packetClass.getConstructors()) {
+					if(c.toGenericString().contains("EnumParticle")) {
+						packetConstructor = c;
+					}
+				}
+//				Constructor<?> packetConstructor = packetClass.getConstructor(packetEnumParticle, boolean.class, float.class, float.class, float.class, float.class, float.class, float.class,
+//						float.class, int.class, int.class);
+				Object packet = null;
+				if(redstone) {
+					packet = packetConstructor.newInstance(enumParticle, true, (float)l.getX(), (float)l.getY(), (float)l.getZ(), red, green, blue, count, 0, null);
+				}else {
+					packet = packetConstructor.newInstance(enumParticle, false, (float)l.getX(), (float)l.getY(), (float)l.getZ(), (float)xOffset, (float)yOffset, (float)yOffset, speed, count, null);
+				}
+		        Method sendPacket = getNMSClass("PlayerConnection").getMethod("sendPacket", getNMSClass("Packet"));
+		        for(Player player : Bukkit.getOnlinePlayers()) {
+		        	sendPacket.invoke(getConnection(player), packet);
+		        }
+		        
+			} catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+					| SecurityException | NoSuchMethodException | NoSuchFieldException | InstantiationException e) {
+				
+			}
+		}else {
+			l.getWorld().spawnParticle(Particle.valueOf(particle),l,count,xOffset,yOffset,zOffset,speed);
 		}
 	}
+	
+	private static Class<?> getNMSClass(String nmsClassString) throws ClassNotFoundException {
+        String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3] + ".";
+        String name = "net.minecraft.server." + version + nmsClassString;
+        Class<?> nmsClass = Class.forName(name);
+        return nmsClass;
+    }
+	
+    private static Object getConnection(Player player) throws SecurityException, NoSuchMethodException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        Method getHandle = player.getClass().getMethod("getHandle");
+        Object nmsPlayer = getHandle.invoke(player);
+        Field conField = nmsPlayer.getClass().getField("playerConnection");
+        Object con = conField.get(nmsPlayer);
+        return con;
+    }
 	
 	public static boolean pasaConfigInventario(Player jugador,FileConfiguration config) {
 		if(config.getString("empty_inventory_to_join").equals("true")) {

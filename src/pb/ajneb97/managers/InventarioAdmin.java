@@ -22,6 +22,7 @@ import net.md_5.bungee.api.ChatColor;
 import pb.ajneb97.PaintballBattle;
 import pb.ajneb97.juego.Partida;
 import pb.ajneb97.juego.PartidaEditando;
+import pb.ajneb97.utils.UtilidadesOtros;
 
 public class InventarioAdmin implements Listener{
 
@@ -157,9 +158,7 @@ public class InventarioAdmin implements Listener{
 		item.setItemMeta(meta);
 		inv.setItem(16, item);
 		
-		if(Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14") || Bukkit.getVersion().contains("1.15")
-				|| Bukkit.getVersion().contains("1.16")|| Bukkit.getVersion().contains("1.17")|| Bukkit.getVersion().contains("1.18")
-				|| Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
+		if(!UtilidadesOtros.isLegacy()) {
 			item = new ItemStack(Material.CLOCK,1);
 		}else {
 			item = new ItemStack(Material.valueOf("WATCH"),1);

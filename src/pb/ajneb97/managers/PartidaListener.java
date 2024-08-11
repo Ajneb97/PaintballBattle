@@ -55,6 +55,7 @@ import pb.ajneb97.juego.JugadorPaintball;
 import pb.ajneb97.juego.Killstreak;
 import pb.ajneb97.juego.Partida;
 import pb.ajneb97.utils.UtilidadesItems;
+import pb.ajneb97.utils.UtilidadesOtros;
 
 public class PartidaListener implements Listener{
 
@@ -587,9 +588,7 @@ public class PartidaListener implements Listener{
 					JugadorPaintball player = partida.getJugador(jugador.getName());
 					
 					if(player.getKillstreak("fury") == null) {
-						if(Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14") || Bukkit.getVersion().contains("1.15")
-								|| Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17") || Bukkit.getVersion().contains("1.18")
-								|| Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
+						if(!UtilidadesOtros.isLegacy()) {
 							if(player.getSelectedHat().equals("chicken_hat")) {
 								jugador.getInventory().removeItem(new ItemStack(Material.EGG,1));
 							}else {

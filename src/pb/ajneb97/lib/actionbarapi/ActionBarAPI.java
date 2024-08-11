@@ -9,14 +9,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import pb.ajneb97.PaintballBattle;
+import pb.ajneb97.utils.UtilidadesOtros;
 
 public class ActionBarAPI
 {
 
   public static void sendActionBar(Player player, String message)
   {
-	  if(Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17") || Bukkit.getVersion().contains("1.18")
-			  || Bukkit.getVersion().contains("1.19") || Bukkit.getVersion().contains("1.20")) {
+	  if(UtilidadesOtros.isNew()) {
 		  TextComponent text_component = new TextComponent(message);
 		  player.spigot().sendMessage(ChatMessageType.ACTION_BAR, text_component);
 		  return;
