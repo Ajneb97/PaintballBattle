@@ -8,6 +8,7 @@ import java.util.Random;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -69,7 +70,8 @@ public class PartidaManager {
 		jugador.setExp(0);
 		jugador.setLevel(0);
 		jugador.setFoodLevel(20);
-		jugador.setMaxHealth(20);
+		// Fix #9
+		jugador.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0D);
 		jugador.setHealth(20);
 		jugador.setFlying(false);
 		jugador.setAllowFlight(false);
@@ -149,7 +151,8 @@ public class PartidaManager {
 		jugador.setLevel(levelGuardado);
 		jugador.setExp(xpGuardada);
 		jugador.setFoodLevel(hambreGuardada);
-		jugador.setMaxHealth(maxVidaGuardada);
+		// Fix #9
+		jugador.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(maxVidaGuardada);
 		jugador.setHealth(vidaGuardada);
 		for(PotionEffect p : jugador.getActivePotionEffects()) {
 			jugador.removePotionEffect(p.getType());
